@@ -6,6 +6,18 @@
 
 ---
 
+## Student Workflow
+
+Keep one personal fork of this course for the semester. Follow the
+[student workflow](docs/student-workflow.md) to create and clone your fork,
+invite the instructor `@ant112342`, configure required reviews for `master`,
+and start a separate branch for each lab.
+
+**A lab is accepted only after the instructor approves its PR. A push or merge
+alone does not count as acceptance.** Lab PRs target `master` in your own fork.
+
+---
+
 ## Repository Structure
 
 ```text
@@ -22,11 +34,13 @@ stm32f407-asm-course/
 │
 ├── examples/               ← examples from lectures/videos
 │   ├── mov_operations/
-│   ├── add_sub_operations/
-│   └── memory_layout/
+│   └── add_sub_operations/
 │
 ├── labs/                   ← student labs
-│   └── lab01/
+│   └── lab01_basic_operations/
+│
+├── docs/
+│   └── student-workflow.md  ← fork, review, submission, and course updates
 │
 ├── build/                  ← generated files: ELF, BIN, MAP, current.elf
 │
@@ -146,7 +160,7 @@ All commands are run from the repository root. Pass `PROJECT=` with the path to 
 ```bash
 make PROJECT=examples/mov_operations
 make PROJECT=examples/add_sub_operations
-make PROJECT=labs/lab01
+make PROJECT=labs/lab01_basic_operations
 ```
 
 After each successful build, the selected project ELF is also copied to:
@@ -324,32 +338,34 @@ make PROJECT=<selected-project>
 
 ---
 
-## Submitting Labs (GitHub Classroom)
+## Submitting Labs (Fork and Pull Request)
 
-1. Follow the assignment link provided by the instructor
-2. GitHub Classroom creates a **private repository in your account** automatically
-3. Clone your repository:
+1. Complete the [one-time fork and review setup](docs/student-workflow.md).
+2. Create a separate branch for the lab, for example `lab01`.
+3. Complete the lab's files in your own fork. For Lab 01, use
+   `labs/lab01_basic_operations/`.
+4. Commit your work and push the lab branch to your fork.
+5. Open a PR from that branch to `master` **in your own fork** and send the
+   instructor its URL. If a classroom platform or LMS is used, submit the same
+   PR URL there.
+6. Address feedback on the same branch and merge only after `@ant112342`
+   approves the current work.
 
-```bash
-git clone https://github.com/YOUR_USERNAME/lab01-basic-operation-YOUR_NAME
-```
+Required files, relative to the lab directory:
 
-4. Complete the assignment
-5. Push when ready:
+* `main.s` — commented assembly source for your variant;
+* `README.md` — append a **Student report** section with your name, GitHub
+  username, variant, manual work, register comparison, and conclusion; preserve
+  the original instructions;
+* `screenshots/debug_registers.png` — your register panel during execution.
 
-```bash
-git add .
-git commit -m "Lab01: Add basic operation assembly code"
-git push
-```
+Keep `build/` and generated `.o`, `.elf`, `.bin`, and `.map` files out of commits.
+The [student workflow](docs/student-workflow.md) includes exact commands and
+explains how to receive new labs from the instructor through an update PR.
 
-Required files per lab:
-
-* `main.s` — commented source code
-* `README.md` — lab report with explanation and screenshot
-* `screenshots/debug_registers.png` — register panel during execution
-
-The instructor will review and approve via GitHub.
+Fork owners can change their protection settings. The course acceptance rule
+still applies: disabling protection or merging without instructor approval does
+not earn lab credit.
 
 ---
 

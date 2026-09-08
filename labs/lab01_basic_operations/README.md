@@ -1,5 +1,12 @@
 # Practical Work 1 — Number Systems and First ARM Assembly Instructions
 
+Work in `labs/lab01_basic_operations/` on branch `lab01` in your personal
+course fork. Before starting, follow the
+[student workflow](../../docs/student-workflow.md) to set up instructor review.
+Build from the repository root using
+`make PROJECT=labs/lab01_basic_operations`, then follow the course debugging
+instructions.
+
 ## Topic
 
 **Binary, decimal, hexadecimal numbers and first ARM Assembly instructions: `MOV`, `ADD`, `SUB`.**
@@ -135,6 +142,20 @@ For your variant, submit:
 3. Your ARM Assembly source code.
 4. A screenshot from Cortex-Debug showing the register values.
 5. A short conclusion: whether your manual results match the register values.
+
+Place your code in `main.s`. Append a **Student report** section to this
+`README.md` with your name, GitHub username, variant number, manual work,
+completed register table, and conclusion. Keep the original tasks and variant
+tables. Create `screenshots/` inside this lab directory, save your register
+screenshot as `screenshots/debug_registers.png`, and reference it in your report.
+
+Submit a PR from `lab01` to `master` **in your own fork**, following the
+[student workflow](../../docs/student-workflow.md). Send the instructor the PR
+URL; if a classroom platform or LMS is used, submit that same URL there.
+Address feedback on the same branch and merge only after `@ant112342` approves
+the current work. A push or merge alone does not count as lab acceptance.
+
+Do not commit `build/` or generated `.o`, `.elf`, `.bin`, or `.map` files.
 
 ---
 
