@@ -1,9 +1,11 @@
         .syntax unified
         .cpu cortex-m4
         .thumb
-        .global main
 
-        .text
+        .section .text
+        .global main
+        .type main, %function
+        .thumb_func
 
 main:
         mov     r0, #42        @ R0 = 42
@@ -11,5 +13,7 @@ main:
         mov     r2, #10        @ R2 = 10
 
 stop:
-         nop
+        nop
         b       stop
+
+.size main, .-main
